@@ -48,6 +48,7 @@ body {
 }
 
 #right #right-wrapper {
+    position: relative;
     display: block;
     width: 100%;
     height: 100%;
@@ -99,6 +100,7 @@ h1 {
 .form-text-input input {
     width: 100%;
     padding: 0.5rem;
+    padding-left: 1rem;
     height: 3rem;
     border-radius: 6px;
     border: none;
@@ -136,6 +138,39 @@ input#password {}
     width: 100%;
 }
 
+.checkbox-input input {
+    float: left;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background: #E5E5E5;
+    outline: none;
+    border-radius: 20px;
+    transition: .5s;
+}
+
+.checkbox-input input:checked {
+    background: #007AFF;
+}
+
+.checkbox-input input:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.checkbox-input input:checked:before {
+    left: 20px;
+}
+
 .extra-links {
     margin-bottom: 2rem;
 }
@@ -143,10 +178,36 @@ input#password {}
 .checkbox-input>div {
     float: left;
     width: 50%;
+    color: var(--black-9001-a-1-a-1-a, #1A1A1A);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Checkbox */
+    font-family: SF Pro Display;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    /* 166.667% */
+    letter-spacing: 0.3px;
+}
+
+.checkbox-input div label {
+    float: left;
 }
 
 .checkbox-input a {
     float: right;
+    text-decoration: none;
+    color: var(--system-blue-007-aff, #007AFF);
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Checkbox */
+    font-family: SF Pro Display;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    /* 166.667% */
+    letter-spacing: 0.3px;
 }
 
 .primary-btn {
@@ -177,7 +238,8 @@ button#signin-google-btn {
     padding: 0.625rem 1.6rem;
     margin-top: 3rem;
     border-radius: 6px;
-    background: var(--black-800333333, #333);
+    background: #333 url(resources/Other-Pay-Method.svg) 20% center no-repeat;
+    background-size: 1.2rem auto;
     color: white;
     /* Checkbox */
     font-family: SF Pro Display;
@@ -227,17 +289,22 @@ button#signin-google-btn {
     padding-left: 0.5rem;
 }
 
-footer {
+.footer {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
-footer .footer-logo img {
+
+/* footer .footer-logo {
+    flex: 1;
+} */
+
+.footer .footer-logo img {
     float: left;
 }
 
-footer .footer-logo a {
+.footer .footer-logo a {
     float: left;
     text-decoration: none;
     color: var(--system-blue-007-aff, #007AFF);
@@ -253,7 +320,7 @@ footer .footer-logo a {
     margin-left: 0.3rem;
 }
 
-footer .footer-copyright p {
+.footer .footer-copyright p {
     color: #666;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Roboto;
@@ -267,16 +334,11 @@ footer .footer-copyright p {
     align-self: flex-end;
 }
 
-footer .footer-copyright {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
 .page-bottom {
     position: absolute;
     bottom: 2rem;
+    width: 100%;
+    padding-right: 6rem;
 }
 
 @media(max-width:992px) {
